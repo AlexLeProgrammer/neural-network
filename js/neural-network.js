@@ -79,8 +79,8 @@ class NeuralNetwork {
      */
     out(inputs) {
         // Set the inputs
-        for (let i = 0; i < this.neurons[this.neurons.length - 1].length; i++) {
-            this.neurons[this.neurons.length - 1][i].input = inputs[i];
+        for (let i = 0; i < this.neurons[0].length; i++) {
+            this.neurons[0][i].input = inputs[i];
         }
 
         // Calculate outputs
