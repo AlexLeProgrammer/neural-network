@@ -1,7 +1,9 @@
 /**
- * Neural - network | script of the neural network class
+ * Neural - network | script of the neural network class.
  *
  */
+
+"use strict";
 
 /**
  * Represent a neuron.
@@ -11,7 +13,7 @@ class Neuron {
     isInput = false;
     weights = [];
     linkedNeurons = [];
-    bias = Math.random();
+    bias = Math.random() * 2 - 1;
 
     /**
      * Constructor.
@@ -22,7 +24,7 @@ class Neuron {
         if (!isInput) {
             // If the neuron is not an input, create weights and assign linked neurons
             for (let i = 0; i < linkedNeurons.length; i++) {
-                this.weights.push(Math.random());
+                this.weights.push(Math.random() * 2 - 1);
             }
 
             this.linkedNeurons = linkedNeurons;
@@ -45,7 +47,7 @@ class Neuron {
             result += this.weights[i] * this.linkedNeurons[i].out();
         }
 
-        return sigmoid(result + this.bias);
+        return result + this.bias;
     }
 }
 
@@ -108,15 +110,6 @@ class NeuralNetwork {
             }
         }
     }
-}
-
-/**
- * Activate X with the sigmoid function.
- * @param x The number to activate.
- * @return {number} The number activated.
- */
-function sigmoid(x) {
-    return 1 / (1 + Math.exp(-x));
 }
 
 /**
